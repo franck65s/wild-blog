@@ -10,6 +10,7 @@ import angularUIRouter from 'angular-ui-router'
 import angularCookies from 'angular-cookies'
 import angularMaterialize from 'angular-materialize'
 
+
 import config from './config/config.md'
 import services from './services/services.md'
 import common from './components/common/common.md'
@@ -18,7 +19,7 @@ import blog from './components/blog/blog.md'
 
 console.log("In app.js")
 console.log(services)
- 
+
 angular.module('app', [
     angularUIRouter,
     angularCookies,
@@ -27,5 +28,6 @@ angular.module('app', [
     services,
     common,
     login,
-    blog
+    blog,
+  
 ])
