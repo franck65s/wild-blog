@@ -9,6 +9,7 @@ import angular from 'angular'
 import angularUIRouter from 'angular-ui-router'
 import angularCookies from 'angular-cookies'
 import angularMaterialize from 'angular-materialize'
+import angularMoment from 'angular-moment'
 
 
 import config from './config/config.md'
@@ -29,5 +30,6 @@ angular.module('app', [
     common,
     login,
     blog,
-  
+    angularMoment
+
 ])

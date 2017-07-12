@@ -1,11 +1,17 @@
 let navbar = {
     templateUrl: 'js/components/common/navbar.html',
-    controller: ['UsersService', '$state', function(UsersService, $state) {
+    controller: ['UsersService', '$state', 'angularMoment', function (UsersService, $state, angularMoment) {
         'use strict'
+        this.message = {
+            text: 'hello world!',
+            time: new Date()
+        };
         angular.extend(this, {
             $onInit() {
                 UsersService.getCurrent().then((user) => {
                     this.user = user
+
+
                 }).catch((err) => {
 
                 })
