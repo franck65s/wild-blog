@@ -22,14 +22,17 @@
 
         <div class="card-content">
             <label for="inputCreated">Préciser la date :-)</label>
-            <input input-date type="text" name="created" id="inputCreated" ng-model="currentTime" container="" format="dd-mm-yyyy" months-full="{{ month }}"
-                months-short="{{ monthShort }}" weekdays-full="{{ weekdaysFull }}" weekdays-short="{{ weekdaysShort }}" weekdays-letter="{{ weekdaysLetter }}"
-                disable="disable" min="{{ minDate }}" max="{{ maxDate }}" today="today" first-day="1" clear="clear" close="close"
-                select-years="15" on-start="onStart()" on-render="onRender()" on-open="onOpen()" on-close="onClose()" on-set="onSet()"
-                on-stop="onStop()" />
+            <input input-date type="text" name="created" id="inputCreated" ng-model="$ctrl.post.createdAt" container="" format="dd/mm/yyyy"
+                months-full="{{ month }}" months-short="{{ monthShort }}" weekdays-full="{{ weekdaysFull }}" weekdays-short="{{ weekdaysShort }}"
+                weekdays-letter="{{ weekdaysLetter }}" disable="disable" min="{{ minDate }}" max="{{ maxDate }}" today="today"
+                first-day="1" clear="clear" close="close" select-years="15" on-start="onStart()" on-render="onRender()" on-open="onOpen()"
+                on-close="onClose()" on-set="onSet()" on-stop="onStop()" />
+            <span class="card-title" ng-if="(!$ctrl.editable || ($ctrl.editable && !$ctrl.editMode))">
+              {{$ctrl.post.createdAt}}
+            </span>
         </div>
         <div class="card-action">
-            <!-- Display this link, only if it's not editable, to change state to blog.item with the post id -->
+            <!-- Dis>play this link, only if it's not editable, to change state to blog.item with the post id -->
             <a ng-if="!$ctrl.editable" ui-sref="blog.item({id: $ctrl.post._id})">Read more</a>
             <!-- Display this link, only if it's editable and not in edit mode, to change state to app.blog.list (go back) -->
             <a ng-if="$ctrl.editable && !$ctrl.editMode" ui-sref="blog.list">Close</a>
